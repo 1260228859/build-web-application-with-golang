@@ -7,7 +7,8 @@ import (
 )
 
 var sqlDB *sql.DB
-func init()  {
+
+func init() {
 	var err error
 	sqlDB, err = sql.Open("mysql", "root:'2017@ebola'@bj-cynosdbmysql-grp-io3qyr86.sql.tencentcdb.com:27816/ivms-dev1?charset=utf8mb4")
 	if err != nil {

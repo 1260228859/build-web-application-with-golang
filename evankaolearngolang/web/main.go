@@ -106,7 +106,7 @@ import (
 
 type person struct {
 	name string
-	age int
+	age  int
 }
 
 type gf []int
@@ -135,13 +135,12 @@ func (P evankao) funb() {
 type fc interface {
 	funa()
 	funb()
-} 
-
+}
 
 var arg interface{}
-	
+
 func isBool(arg interface{}) {
-	
+
 	switch arg_type := arg.(type) {
 	case int:
 		fmt.Println("sw-int", arg_type)
@@ -149,7 +148,7 @@ func isBool(arg interface{}) {
 		fmt.Println("sw-string", arg_type)
 	}
 
-	val,ok := arg.(int)
+	val, ok := arg.(int)
 	fmt.Println(val, ok)
 }
 
@@ -158,7 +157,7 @@ func main() {
 	// // fmt.Printf("Hello, world.  Sqrt(2) = %v\n", mymath.Sqrt(2))
 	// fmt.Printf("hollo word", a)
 
-	// gf := append(make(gf, 9, 10), 9, 9)	
+	// gf := append(make(gf, 9, 10), 9, 9)
 	// Evan := evankao{person{"gao", 99}, 99999, gf, 2}
 	// Evan.gf = []int{1,3,4,5}
 	// Evan.funa()
@@ -174,8 +173,8 @@ func main() {
 
 	// interface任意参数传递
 	// arg = 12
-	// isBool(arg) 
-	
+	// isBool(arg)
+
 	// 反射
 	// float1 := 5.234
 	// fmt.Println(reflect.TypeOf(float1))
@@ -206,26 +205,24 @@ func main() {
 	// go say(2999, ch1, ch2)
 	for {
 		select {
-		case x := <- ch1:
+		case x := <-ch1:
 			fmt.Println("chann-get", x)
 		case x := <-ch2:
 			fmt.Println("quit-ch2", x)
 			return
-		case <- time.After(5 * time.Second):
+		case <-time.After(5 * time.Second):
 			fmt.Println("超时退出")
 			return
 		}
 	}
 
-
-
 }
 
-func say(s int, ch1 chan<- int, ch2 chan int){
+func say(s int, ch1 chan<- int, ch2 chan int) {
 	// a222 := <- ch2
 	// fmt.Println(a222)
 	for i := 0; i < 5; i++ {
-		
+
 		fmt.Println(i)
 		ch1 <- i
 	}
